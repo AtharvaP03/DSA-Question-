@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSA Question Generator</title>
+</head>
+<body>
+    <h1>DSA Question Generator</h1>
+
+    <button onclick="generateQuestion()">Generate Question</button>
+    <div id="questionOutput"></div>
+
+    <script>
+        function generateQuestion() {
+            fetch('/generate_question')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('questionOutput').innerText = data;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
+</body>
+</html>
